@@ -279,5 +279,26 @@ function FindPair3(arr, target) {
   return -1;
 }
 const testArr = [1, 2, 3, 4, 5];
-console.log(FindPair3(testArr, 7));
+// console.log(FindPair3(testArr, 7));
+//
+//  find the longest substring
+const strings = ["abc", "abc", "ab"];
+function findMaxPrefix(arr) {
+  let sortedArray = arr.sort();
 
+  let cache = new Set();
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (sortedArray[0][i] === sortedArray[j][i]) {
+        // prefix += sortedArray[i][i];
+        cache.add(sortedArray[i][i], "hello");
+      } else {
+        return ` ${Array.from(cache.keys()).join("")}`;
+      }
+    }
+  }
+  return ` ${Array.from(cache.keys()).join("")}`;
+}
+
+// console.log(findMaxPrefix(strings));
