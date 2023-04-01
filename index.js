@@ -50,6 +50,42 @@ loop to find its duplicate entry.
 time Complexity O(n^2) 
 space Complexity O(1) 
  */
+
+/**
+ * BUBBLE SORT
+ *
+ * @param {number[]} nums
+ */
+
+function bubbleSort(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length - 1 - i; j++) {
+      if (nums[j] > nums[j + 1]) {
+        [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
+      }
+    }
+  }
+}
+/**
+ * Modified (improved) Bubble-Sort
+When there is no more swap in one pass of the outer loop. It indicates that all the elements are already in
+order so we should stop sorting. This sorting improvement in Bubble-Sort is extremely useful when we
+know that, except few elements rest of the array is already sorted.
+ * 
+ * @param {number[]} nums 
+ */
+function modifiedBubbleSort(nums) {
+  let swapped = true;
+  for (let i = 0; i < nums.length && swapped; i++) {
+    swapped = false;
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[j] > nums[j + 1]) {
+        [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
+        swapped = true;
+      }
+    }
+  }
+}
 function printDuplicate(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 1 + i; j < arr.length; j++) {
@@ -748,3 +784,246 @@ function maxProfit(stock) {
     }
   }
 }
+
+/**
+ * Given an array of 0’s and 1’s. All the 0’s come before 1’s. Write an algorithm to find the index of the first
+1.
+Or
+You are given an array which contains either 0 or
+ */
+
+function findFirstIndex(nums) {
+  let start = 0;
+  let end = nums.length - 1;
+  while (start <= end) {
+    let midpoint = start + Math.floor((end - start) / 2);
+    if (nums[midpoint - 1] == 0 && nums[midpoint] === 1) {
+      return midpoint;
+    } else if (nums[midpoint - 1] === 1 && nums[midpoint + 1] === 1) {
+      end = midpoint - 1;
+    } else {
+      start = midpoint + 1;
+    }
+  }
+}
+
+// console.log(
+//   findFirstIndex([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1])
+// );
+
+/**
+ * Transform Array
+How would you swap elements of an array like [a1 a2 a3 a4 b1 b2 b3 b4] to convert it into [a1 b1 a2 b2
+a3 b3 a4 b4]?
+
+Approach:
+· First swap elements in the middle pair
+· Next swap elements in the middle two pairs
+· Next swap elements in the middle three pairs
+· Iterate n-1 steps.
+ */
+
+function ransformArrayAB1(nums) {
+  let midpoint = Math.floor(nums.length / 2);
+}
+
+/**
+ * Check if two arrays are permutation of each other
+Given two integer arrays. You have to check whether they are permutation of each other.
+ */
+
+/**
+ * First approach: Sorting, Sort all the elements of both the arrays and Compare each element of both the
+arrays from beginning to end. If there is no mismatch, return true. Otherwise, false.
+Sorting algorithms take O(n.log n) time and comparison take O(n) time.
+The Time Complexity of an algorithm is O(n.log n) and Space Complexity is O(1)
+ */
+
+/**
+ * Second approach: Hash-Table (Assumption: No duplicates).
+Steps are:
+1. Create a Hash-Table for all the elements of the first array.
+2. Traverse the other array from beginning to the end and search for each element in the Hash-Table.
+3. If all the elements are found in the Hash-Table, return true otherwise return false.
+Hash-Table insert and find take constant time O(1) so the total Time Complexity of the algorithm is O(n)
+time. Space Complexity is also O(n)
+Time Complexity = O(n) (For creation of Hash-Table and look-up),
+Space Complexity = O(n) (For creation of Hash-Table).
+ */
+function checkPermutation(nums1, nums2) {
+  if (nums1.length !== nums2.length) {
+    return false;
+  }
+  const cache = new Map();
+
+  for (let i = 0; i < nums1.length; i++) {
+    cache.set(nums1[i], "");
+  }
+  for (let j = 0; j < nums2.length; j++) {
+    if (!cache.has(nums1[j])) return flse;
+  }
+  return true;
+}
+
+/**Remove duplicates in an integer array */
+function removeDuplicates(nums) {
+  let cache = new Set();
+
+  for (let i = 0; i < nums.length; i++) {
+    cache.add(nums[i]);
+  }
+  return [...cache.values()];
+}
+// console.log(removeDuplicates([1, 2, 3, 4, 5, 6, 7, 2, 1, 4, 5, 8, 9, 1, 3, 0]));
+/**
+ * Second approach: Sorting
+Steps are as follows:
+1. Sort the array.
+2. Take two pointers. A subarray will be created with all unique elements starting from 0 to the first
+pointer (The first pointer points to the last index of the subarray). The second pointer iterates through
+the array from 1 to the end. Unique numbers will be copied from the second pointer location to first
+pointer location and the same elements are ignored.
+Time Complexity calculation :
+Time to sort the array = O(nlogn).
+Time to remove duplicates = O(n). Overall Time Complexity = O(nlogn).
+No additional space is required so Space Complexity is O(1)
+ */
+function removeDuplicates2(nums) {
+  let j = 0;
+  let i;
+  if (nums.length == 0) return 0;
+  sort(nums);
+  for (i = 1; i < nums.length; i++) {
+    if (nums[i] != nums[j]) {
+      j++;
+      nums[j] = nums[i];
+    }
+  }
+  return j + 1;
+}
+
+/**
+ * Given an array of n elements, write an algorithm to find three elements in an array whose sum is a
+given value.
+Hint: Try to do this problem using a brute force approach. Then try to apply the sorting approach along
+with a brute force approach. The Time Complexity will be O(n2)
+ */
+
+//  DNA Sequence
+
+function DNASequence(DNA) {
+  let DNALength = DNA.length;
+  let substringLength = Math.floor(DNALength / 10);
+  let reminder = DNALength % 10;
+  let uniqueSequence = [];
+  if (substringLength == 1) {
+    return DNA.substring(0, substringLength);
+  }
+  let cache = new Map();
+  let substring;
+  let lower = 0;
+  let upper = 10;
+  let count = 1;
+  while (upper <= DNALength - reminder) {
+    substring = DNA.substring(lower, upper);
+
+    let sorted = substring.split("").sort().join("");
+
+    if (cache.has(sorted)) {
+      count += 1;
+      cache.set(substring, count);
+    } else {
+      count = 1;
+      cache.set(sorted, count);
+    }
+    lower += 10;
+    upper += 10;
+  }
+  cache.forEach((value, key) => {
+    if (value > 1) {
+      for (let i = 0; i < value; i++) {
+        uniqueSequence.push(key);
+      }
+    }
+  });
+  return uniqueSequence;
+}
+// console.log(DNASequence("AAAAACCCCCAAAAACCCCCAAAAACCCCCAAAAAGGGTTT"));
+
+function aa(num) {
+  let c = num;
+  let d = c.toString();
+  let count = 0;
+  let start = 0;
+  let end = d.length - 1;
+  while (start <= end) {
+    if (d[start] == "1") {
+      count++;
+    }
+    if (d[end] == "1") {
+      count++;
+    }
+    start++;
+    end--;
+  }
+  return count;
+}
+// console.log(aa("0000000000000000000000001011"));
+
+//Minimum Size SubArray Sum
+function MinimumSubarray(nums) {
+  let startPivot = 0;
+}
+function containsDuplicate2(nums, k) {
+  let left = 0;
+  let right = nums.length - 1;
+  let diff;
+  for (let i = 0; i <= right; i++) {
+    diff = Math.abs(left - right);
+    if (diff <= k) {
+      return true;
+    } else {
+      right--;
+    }
+  }
+  return false;
+}
+console.log(containsDuplicate2([1, 0, 1, 1], 1));
+
+function containsDuplicate3(nums, indexDiff, valueDiff) {
+  let start = 0;
+  let end = nums.length - 1;
+  let idxDiff;
+  let valDiff;
+  for (let i = 0; i < nums.length; i++) {
+    idxDiff = Math.abs(end - i);
+    valDiff = Math.abs(nums[start] - nums[end]);
+    if (idxDiff <= valueDiff && valDiff <= valueDiff) {
+      return true;
+    }
+    if (idxDiff > indexDiff) {
+      end--;
+    }
+  }
+}
+function proffessionalRober(nums) {
+  if (nums == null || nums.length == 0) {
+    return 0;
+  }
+  if (nums.length == 1) {
+    return nums[0];
+  }
+  if (nums.length == 2) {
+    return Math.max(nums[0], nums[1]);
+  }
+  const robMax = [];
+  robMax[0] = nums[0];
+  robMax[1] = Math.max(nums[0], nums[1]);
+
+  for (let i = 2; i < nums.length; i++) {
+    robMax[i] = Math.max(nums[i] + robMax[i - 2], robMax[i - 1]);
+  }
+  console.log(robMax);
+  return robMax[nums.length - 1];
+}
+console.log(proffessionalRober([1, 2, 3, 1]));
