@@ -823,7 +823,7 @@ Approach:
 · Iterate n-1 steps.
  */
 
-function ransformArrayAB1(nums) {
+function transformArrayAB1(nums) {
   let midpoint = Math.floor(nums.length / 2);
 }
 
@@ -893,6 +893,7 @@ function removeDuplicates2(nums) {
   let i;
   if (nums.length == 0) return 0;
   sort(nums);
+
   for (i = 1; i < nums.length; i++) {
     if (nums[i] != nums[j]) {
       j++;
@@ -901,7 +902,7 @@ function removeDuplicates2(nums) {
   }
   return j + 1;
 }
-
+// console.log(removeDuplicates2([1, 1, 1, 2, 2, 3, 4, 5, 6, 6]));
 /**
  * Given an array of n elements, write an algorithm to find three elements in an array whose sum is a
 given value.
@@ -974,6 +975,7 @@ function aa(num) {
 function MinimumSubarray(nums) {
   let startPivot = 0;
 }
+// leetcode
 function containsDuplicate2(nums, k) {
   let left = 0;
   let right = nums.length - 1;
@@ -989,7 +991,7 @@ function containsDuplicate2(nums, k) {
   return false;
 }
 console.log(containsDuplicate2([1, 0, 1, 1], 1));
-
+//leetcode
 function containsDuplicate3(nums, indexDiff, valueDiff) {
   let start = 0;
   let end = nums.length - 1;
@@ -1027,3 +1029,7 @@ function proffessionalRober(nums) {
   return robMax[nums.length - 1];
 }
 console.log(proffessionalRober([1, 2, 3, 1]));
+
+// closest sum to 0
+
+function aaa(nums) {}
