@@ -60,12 +60,13 @@ space Complexity O(1)
 function bubbleSort(nums) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length - 1 - i; j++) {
-      if (nums[j] > nums[j + 1]) {
+      if (nums[j] < nums[j + 1]) {
         [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
       }
     }
   }
 }
+
 /**
  * Modified (improved) Bubble-Sort
 When there is no more swap in one pass of the outer loop. It indicates that all the elements are already in
