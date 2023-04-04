@@ -1,19 +1,24 @@
 #include <iostream>
+#include "sum.h"
 using namespace std;
 void insetionSort(int a[], int size);
 
 int main()
 {
-    int a[] = {
-        12,
-        23,
-        34,
-        4565,
-        6,
-        87,
-        98,
-
-    };
+    cout << sum(9, 3) << endl;
+    cout << sum(3, 5) << endl;
+    cout << sum(12, 3) << endl;
+    cout << sum(3, 24) << endl;
+    int a[] = {7,
+               12,
+               23,
+               34,
+               4565,
+               6,
+               87,
+               98,
+               7,
+               120, 234};
     int size = sizeof(a) / sizeof(int);
     insetionSort(a, size);
     for (size_t i = 0; i < size; i++)
