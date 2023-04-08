@@ -2,6 +2,10 @@
 using namespace std;
 #define MAX 100
 #include <cstdlib>
+
+#include <cstring>
+void countSort(int a[], int size);
+
 void swap(int arr[], int x, int y)
 {
     int temp = arr[x];
@@ -47,12 +51,38 @@ void selectionSort(int a[], int size)
 }
 int main()
 {
-    int a[] = {12, 23, 34, 4565, 6, 87, 98, 2, 78, 67, 2, 1, 21, 12, 6768};
+    int a[26] = {0};
     int size = sizeof(a) / sizeof(int);
-    displayArray(a, size);
-    selectionSort(a, size);
-    displayArray(a, size);
+    // displayArray(a, size);
+    // selectionSort(a, size);
+    // displayArray(a, size);
+    countSort(a, size);
     return 0;
+}
+void countSort(int a[], int size)
+{
+    string words = "abac";
+    int arr[26] = {0};
+    displayArray(arr, size);
+    cout << endl;
+    for (auto &&letter : words)
+    {
+        arr[letter - 'a']++;
+    }
+    cout << endl;
+
+    for (int i = 0; i < 26; i++)
+    {
+        for (size_t j = 0; j < arr[i]; j++)
+        {
+            cout << 'a' + i;
+        }
+    }
+
+    // int length = sizeof(a) / sizeof(int);
+    cout << endl;
+
+    displayArray(arr, size);
 }
 void BubbleSort(int a[])
 {
