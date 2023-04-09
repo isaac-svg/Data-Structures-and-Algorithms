@@ -59,7 +59,7 @@ private:
         Node(int v);
     };
     Node *head;
-    int list_size;
+    int list_size = 0;
 
 public:
     virtual int size();
@@ -72,6 +72,7 @@ public:
     virtual void sortedInsert(int v);
     virtual bool isPresent(int v);
     virtual bool deleteNode(int v);
+    virtual void deleteNodes(int v);
     // Other Linked List Methods
 };
 
@@ -151,7 +152,7 @@ void LinkedList::sortedInsert(int v)
     Node *newNode = new Node(v, nullptr);
     Node *curr = head;
 
-    if (curr->next == nullptr || curr->value > v)
+    if (curr->next != nullptr || curr->value > v)
     {
         newNode->next = head;
         head = newNode;
@@ -172,15 +173,16 @@ Search element in linked list. Given a head pointer and value. Returns true if
 value found in list else returns false.
  * @return bool
  */
-bool LinkedList::isPresent(int v)
+bool LinkedList::isPresent(int data)
 {
     Node *curr = head;
-    if (curr->value == v)
-        return true;
-    while (curr->next != nullptr && curr->value != v)
+
+    while (curr->next != nullptr)
     {
-        if (curr->value == v)
+        if (curr->value == data)
+        {
             return true;
+        }
         curr = curr->next;
     }
     return false;
@@ -215,8 +217,8 @@ bool LinkedList::deleteNode(int data)
     // traverse through the linked list to find the node the node that has value data.
     Node *curr = head;
     Node *delMe = nullptr;
-    Node *prev = nullptr;
-    if (peek() == data)
+
+    if (head->value == data)
     {
         Node *delMe = head;
         head = head->next;
@@ -224,20 +226,48 @@ bool LinkedList::deleteNode(int data)
         delete delMe;
         return true;
     }
-    while (curr->next == nullptr && curr->next->value != data)
+    while (curr->next != nullptr)
     {
-        if (curr->value == data)
+        if (curr->next->value == data)
         {
             delMe = curr->next;
-            prev = curr->next->next;
-            curr->next = prev;
-            delete delMe;
+            curr->next = curr->next->next;
             list_size--;
+            delete delMe;
             return true;
         }
         curr = curr->next;
     }
     return false;
+}
+// Delete all the occurrence of particular value in linked list.
+void LinkedList::deleteNodes(int delValue)
+{
+    Node *currNode = head;
+    Node *delMe = nullptr;
+    Node *nextNode = nullptr;
+    // check for first occurence.
+    while (currNode != nullptr && currNode->value == delValue)
+    {
+        delMe = head;
+        head = currNode->next;
+        currNode = head;
+        delete delMe;
+    }
+    while (currNode != nullptr)
+    {
+        nextNode = currNode->next;
+        if (nextNode != nullptr && nextNode->value == delValue)
+        {
+            delMe = currNode->next;
+            currNode->next = nextNode->next;
+            delete delMe;
+        }
+        else
+        {
+            currNode = nextNode;
+        }
+    }
 }
 int main()
 {
@@ -245,7 +275,10 @@ int main()
     LinkedList II = LinkedList();
     II.addHead(1);
     II.addHead(2);
-    II.addHead(3);
     II.addHead(4);
+    II.addHead(5);
+    II.addHead(6);
+    II.sortedInsert(7);
     II.print();
+    II.size();
 }
