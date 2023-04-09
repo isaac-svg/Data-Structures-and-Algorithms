@@ -1,3 +1,12 @@
+/**
+ * @file index.js
+ * @author isaac-svg (https://github.com/isaac-svg)
+ * @brief  anwers to some questions  i solve on Data Structures and Algorithms
+ * @version 0.1
+ * @date 2023-04-09
+ *
+ */
+
 function binarySearch(arr, target) {
   let low = 0;
   let high = arr.length - 1;
