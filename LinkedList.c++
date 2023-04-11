@@ -158,7 +158,7 @@ void LinkedList::sortedInsert(int v)
         head = newNode;
         return;
     }
-    while (curr->next == nullptr && curr->next->value < v)
+    while (curr->next != nullptr && curr->next->value < v)
     {
         curr = curr->next;
     }
@@ -278,7 +278,10 @@ int main()
     II.addHead(4);
     II.addHead(5);
     II.addHead(6);
+    II.addHead(6);
     II.sortedInsert(7);
     II.print();
-    II.size();
+    int size = II.size();
+    std::cout << size;
+    std::cout << std::endl;
 }
