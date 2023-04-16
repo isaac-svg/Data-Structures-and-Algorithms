@@ -73,6 +73,7 @@ public:
     virtual bool isPresent(int v);
     virtual bool deleteNode(int v);
     virtual void deleteNodes(int v);
+    virtual void freeList();
     // Other Linked List Methods
 };
 
@@ -152,7 +153,7 @@ void LinkedList::sortedInsert(int v)
     Node *newNode = new Node(v, nullptr);
     Node *curr = head;
 
-    if (curr->next != nullptr || curr->value > v)
+    if (curr == nullptr || curr->value > v)
     {
         newNode->next = head;
         head = newNode;
@@ -162,7 +163,7 @@ void LinkedList::sortedInsert(int v)
     {
         curr = curr->next;
     }
-    newNode = curr->next;
+    newNode->next = curr->next;
     curr->next = newNode;
 }
 
@@ -269,6 +270,26 @@ void LinkedList::deleteNodes(int delValue)
         }
     }
 }
+
+/**
+
+Delete all the elements of a linked list.
+*/
+
+void LinkedList::freeList()
+{
+    Node *currNode = head;
+    Node *nextNode;
+    while (currNode != nullptr)
+    {
+        nextNode = currNode->next;
+        delete currNode;
+        currNode = nextNode;
+    }
+    head = nullptr;
+    list_size = 0;
+}
+
 int main()
 {
 
@@ -278,7 +299,9 @@ int main()
     II.addHead(4);
     II.addHead(5);
     II.addHead(6);
+    II.freeList();
     II.addHead(6);
+    II.freeList();
     II.sortedInsert(7);
     II.print();
     int size = II.size();

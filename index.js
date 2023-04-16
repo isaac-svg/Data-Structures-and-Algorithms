@@ -487,7 +487,7 @@ Steps are as follows:
 function closestSumToZero2(arr) {
   let minFirst, minSecond, sum, minSum, left, right;
 
-  //  check if array length is leaa than two
+  //  check if array length is less than two
 
   if (arr.length < 2) {
     return;
@@ -1041,5 +1041,26 @@ function proffessionalRober(nums) {
 console.log(proffessionalRober([1, 2, 3, 1]));
 
 // closest sum to 0
+//INCOMPLETE, BUGGY,RETRY AGAIN
+function threeSumClosestToZero(nums) {
+  Math.sort(nums);
+  let result = [];
+  // three pointers
+  let a_pointer = 0;
+  let b_pointer = nums.length - 1;
+  let i;
+  let currMin = nums[0] + nums[a_pointer] + nums[b_pointer];
 
-function aaa(nums) {}
+  for (i = 0; i < nums.length - 2; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+    while (a_pointer < b_pointer) {
+      let currentSum = nums[i] + nums[a_pointer] + nums[b_pointer];
+      if (currentSum > currMin) {
+        currMin = currentSum;
+        a_pointer++;
+      } else {
+        b_pointer++;
+      }
+    }
+  }
+}
