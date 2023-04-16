@@ -412,7 +412,7 @@ find (value - xi) in the Hashtable.
 Hash-Table insert and find take constant time O(1) so the total Time Complexity of the algorithm is O(n)
 time. Space Complexity is also O(n)
  */
-console.time("start");
+// console.time("start");
 function findPairInTwo4(X, Y, target) {
   let cache = new Map();
   for (let i = 0; i < X.length; i++) {
@@ -424,7 +424,7 @@ function findPairInTwo4(X, Y, target) {
     }
   }
 }
-console.timeEnd("start");
+// console.timeEnd("start");
 
 // const tesArr1 = [1, 2, 3, 4, 5];
 // const tesArr2 = [6, 7, 8, 9, 10];
@@ -443,7 +443,7 @@ the element and second loop to find the element that should be added to it so th
 will be minimum or close to zero.
 The Time Complexity is O(n2) and Space Complexity is O(1)
  */
-console.time("closestSumToZero1");
+// console.time("closestSumToZero1");
 function closestSumToZero1(arr) {
   let minSum, minFirst, minSecond, sum;
   // Inialization of variables
@@ -470,7 +470,7 @@ function closestSumToZero1(arr) {
 }
 // const testData = [-1, 2, 4, -3, 9, -7, -1, 2, 4, -3, 9, -7];
 // console.log(closestSumToZero1(testData));
-console.timeEnd("closestSumToZero1");
+// console.timeEnd("closestSumToZero1");
 
 /**
  * Second approach: Sorting
