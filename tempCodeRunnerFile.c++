@@ -2,6 +2,7 @@ using namespace std;
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
+#include <algorithm>
 
 // Three Sum leetCode
 // header file for sort ?
