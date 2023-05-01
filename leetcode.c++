@@ -90,7 +90,7 @@ int main(void)
     std::cout << std::endl;
 }
 
-int aaa(std::vector<int> nums)
+int removeDuplicates(std::vector<int> nums)
 {
     int i = 0;
 
