@@ -1064,3 +1064,20 @@ function threeSumClosestToZero(nums) {
     }
   }
 }
+
+function largestNumber(nums) {
+  //     sort the vector in descending order
+  nums.sort((a, b) => b - a);
+  // create a string variable to hold the return value
+  result = "";
+  // loop through the vector
+  let n = nums.length;
+  let lest10 = 0.9;
+  let gte10 = 1;
+
+  for (let i = 0; i < n; i++) {}
+
+  return result;
+}
+let arr = [3, 2, 5];
+console.log(largestNumber(arr));

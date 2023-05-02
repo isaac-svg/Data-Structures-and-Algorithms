@@ -75,20 +75,6 @@ void divisibilityArray(std::string s1, int num)
     }
     std::cout << std::endl;
 }
-int main(void)
-{
-
-    std::vector<int> nums1 = {4, 1, 3};
-    std::vector<int> nums2 = {5, 7};
-    // std::cout << smallestNumber1(nums1, nums2) << std::endl;
-    // std::cout << smallestNumber2(nums1, nums2) << std::endl;
-    std::string s1 = "998244353";
-    int nums = 3;
-
-    divisibilityArray(s1, nums);
-
-    std::cout << std::endl;
-}
 
 int removeDuplicates(std::vector<int> nums)
 {
@@ -104,4 +90,31 @@ int removeDuplicates(std::vector<int> nums)
         /* code */
     }
     return (i + 1);
+}
+
+/**
+ * @brief 179.Largest Number
+ * Given a list of of non-negative integers arrange the so that they form the largest and retrn it (as a string)
+ *
+ *
+ * @return string
+ */
+bool comp(int el1, int el2)
+{
+    if (el1 > el2)
+        return true;
+    return false;
+}
+
+int main(void)
+{
+
+    std::vector<int> nums1 = {4, 1, 3};
+    std::vector<int> nums2 = {5, 7};
+    // std::cout << smallestNumber1(nums1, nums2) << std::endl;
+    // std::cout << smallestNumber2(nums1, nums2) << std::endl;
+    std::string s1 = "998244353";
+    int nums = 3;
+
+    divisibilityArray(s1, nums);
 }
