@@ -1,7 +1,7 @@
 /**
  * @file lengthOfLongestSubstring.c++
  * @author  isaac sakyi (isaacsakyi009@gmail.com)
- * @brief Solution to leetcode question -> Longest substring without repesting characters
+ * @brief Solution to leetcode question -> Longest substring without repeating characters
  * @version 0.1
  * @date 2023-05-04
  *
@@ -44,9 +44,9 @@ int lengthOfLongestSubstring(string s)
 int main()
 {
 
-    string s = "pwwkew";
-
-    cout << lengthOfLongestSubstring(s) << '\n';
+    string s = "  ";
+    s.size();
+    cout << lengthOfLongestSubstring(s) << " " << s.size() << '\n';
 
     return 0;
 }
