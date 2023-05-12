@@ -11,35 +11,28 @@ using namespace std;
 #include <math.h>
 vector<int> plusOne(vector<int> digits)
 {
-    int length = digits.size();
-    // cout << length;
-    // ans vector
-    vector<int> ans;
-    int num = 0;
-    for (int i = 0; i < length; i++)
+    for (int i = digits.size() - 1; i >= 0; i--)
     {
-        // cout << (digits[i] * pow(10, (length - 1 - i))) << " ,";
-        num += (digits[i] * pow(10, (length - 1 - i)));
+        if (digits[i] != 9)
+        {
+            digits[i] = digits[i] + 1;
+            break;
+        }
+        else
+        {
+            digits[i] = 0;
+        }
     }
-    //  add one to num
-    num += 1;
-
-    int singledigit = 0;
-    length = digits.size();
-    int test = num;
-    for (int i = 0; i < length; i++)
+    if (digits[0] == 0)
     {
-        singledigit = num / pow(10, (length - 1 - i));
-        num = num % static_cast<int>(pow(10, (length - 1 - i)));
-
-        ans.push_back(singledigit);
+        digits.insert(digits.begin(), 1);
     }
-    return ans;
+    return digits;
 }
 
 int main()
 {
-    vector<int> data = {1, 2, 3};
+    vector<int> data = {6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3};
 
     vector<int> result = plusOne(data);
 
