@@ -23,7 +23,7 @@ void insertionSort(int arr[], int size){
         {
             arr[j + 1] = arr[j];
             j = j - 1;
-
+            
         }
 
         arr[j + 1] = key; 
@@ -47,6 +47,8 @@ void insertionSort2(int arr[], int size){
     }
     
 }
+
+
 int main(){
 
     int arr[] = {12, 11, 13, 5, 6};
@@ -55,7 +57,7 @@ int main(){
     std::cout << "Original array: ";
     printArray(arr, n);
 
-    insertionSort2(arr, n);
+    insertionSort(arr, n);
 
     std::cout << "Sorted array: ";
     printArray(arr, n);
