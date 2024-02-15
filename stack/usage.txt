@@ -1,0 +1,90 @@
+Using two Stacks
+
+1. Implementing Queues:
+
+    This is the most common use case. By using two stacks, you can mimic the push/pop behavior of a queue:
+        push: Push onto one stack (let's call it in)
+        pop: Pop from the other stack (let's call it out). If out is empty, reverse the elements of in onto out, effectively transferring them.
+
+2. Undo/Redo Functionality:
+
+    Store user actions or program states in one stack for undo and in another for redo, enabling backwards and forwards functionality in editors, image manipulation tools, etc.
+
+3. Expression Evaluation:
+
+    Use one stack for operands and another for operators while processing expressions in reverse Polish notation (postfix notation).
+
+4. Parsing Trees:
+
+    Implement Depth-First Search (DFS) or Breadth-First Search (BFS) tree traversals using two stacks, one for keeping track of nodes to visit and another for storing processed nodes.
+
+5. Recursive Function Alternative:
+
+    For simple recursive functions, convert them to iterative versions using two stacks to manage function calls and return values, avoiding potential recursion depth problems.
+
+6. Efficient String Reversal:
+
+    Push characters onto one stack, then pop and print them from the other to achieve reversal without creating a new string or in-place modifications.
+
+7. Balancing Algorithms:
+
+    Implement algorithms like the two-stack sorting algorithm or balancing parentheses in expressions using two stacks.
+
+8. Infix to Postfix Conversion:
+
+    Use two stacks to convert infix expressions (standard mathematical notation) to postfix expressions (reverse Polish notation) for easier evaluation.
+
+9. Graph Traversal:
+
+    Implement DFS or BFS on graphs using two stacks, one for unvisited nodes and another for visited nodes.
+
+10. Backtracking Algorithms:
+
+    Use two stacks to track possible solutions and backtrack when necessary in problems like maze solving or Sudoku.
+
+
+
+    Combining Stacks and Queues
+
+
+Combining Stacks and Queues in Software Engineering
+
+
+1. Deque (Double-Ended Queue):
+
+    This popular data structure allows insertion and deletion from both ends, resembling a hybrid of a stack and a queue.
+    Implement it using two stacks: one for "front" elements and another for "back" elements.
+    Push to the front stack for push_front and back stack for push_back.
+    Pop from either stack depending on which end is chosen (pop_front or pop_back).
+
+2. Undo/Redo Functionality (Enhanced):
+
+    Expand on the basic undo/redo using stacks by providing multiple levels of undo or redo.
+    Use two stacks for each level: one for storing states and another for keeping track of the order.
+    This allows multiple undos and redos within each level, maintaining a history of operations.
+
+3. Breadth-First Search with Level Information:
+
+    In graph traversals, use one stack for storing nodes at the current level (like traditional BFS) and another for recording the previous level.
+    This efficiently keeps track of level information along with node visitation, aiding in algorithms like level-order traversal or finding the shortest path with a specific depth constraint.
+
+4. Multilevel Backtracking:
+
+    Backtracking algorithms often explore options iteratively. Introduce levels in exploration using two stacks: one for the current level and another for storing backtracking points from previous levels.
+    This enables efficient backtracking between multiple solution branches without losing track of overall exploration progress.
+
+5. Efficient Parsing with Lookahead:
+
+    When parsing complex textual formats, use a stack for the main parsing process and another for storing potential next tokens ("lookahead").
+    This allows peeking ahead without committing to a decision, aiding in error correction or disambiguation while maintaining parsing context.
+
+6. Efficient Memory Management:
+
+    Implement object pools using stacks for pre-allocated objects and another for deallocated objects.
+    This promotes fast object allocation and reuse, avoiding frequent dynamic memory allocation/deallocation overhead.
+
+7. Implementing Priority Queues (Customizable):
+
+    While std::priority_queue offers flexibility, create a custom implementation using two stacks based on your specific priority rules.
+    Use one stack for storing elements and another for keeping track of their priorities.
+    This allows fine-grained control over prioritization logic and data structures tailored to your use case.
