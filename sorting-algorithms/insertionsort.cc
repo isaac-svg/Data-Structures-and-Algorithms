@@ -10,14 +10,13 @@ void insertion_sort(int *arr, int  size){
 
         while (j >= 0 && keyEl <  arr[j])
         {
-            arr[j + 1] = arr[j];
+            arr[j + 1] = std::move(arr[j]);
             j = j - 1;
         }
 
         arr[j + 1] = keyEl;
     }
     
-
 }
 
 
